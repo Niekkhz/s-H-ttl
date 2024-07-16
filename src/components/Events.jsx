@@ -44,7 +44,7 @@ const Events = () => {
   return (
     <div className="events-background">
       <div className="container">
-        <h2>Upcoming Events</h2>
+        <h2>Anstehende Events</h2>
         <FullCalendar
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
           initialView="dayGridMonth"
