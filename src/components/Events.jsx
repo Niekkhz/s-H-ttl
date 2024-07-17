@@ -1,61 +1,80 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import Modal from "./Modal";
+import axios from "axios";
 
 const Events = () => {
-  const [events, setEvents] = useState([
-    {
-      id: 1,
-      title: "Event 1",
-      date: "2023-07-10",
-      details: "Details about Event 1",
-    },
-    {
-      id: 2,
-      title: "Event 2",
-      date: "2023-07-12",
-      details: "Details about Event 2",
-    },
-  ]);
+  const [events, setEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
 
-  const handleDateClick = (info) => {
+  useEffect(() => {
+    const fetchEvents = async () => {
+      const response = await axios.get("http://localhost:5000/events");
+      setEvents(response.data);
+    };
+
+    fetchEvents();
+  }, []);
+
+  const handleDateClick = async (info) => {
     let title = prompt("Enter event title:");
     if (title) {
-      setEvents([
-        ...events,
-        { id: events.length + 1, title, date: info.dateStr },
-      ]);
+      const newEvent = { title, date: info.dateStr };
+      const response = await axios.post(
+        "http://localhost:5000/events",
+        newEvent
+      );
+      setEvents([...events, response.data]);
     }
   };
 
   const handleEventClick = (info) => {
-    const event = events.find((e) => e.id === parseInt(info.event.id));
+    const EventId = info.el
+      .querySelector("div")
+      .querySelector("div")
+      .getAttribute("data-id");
+    const event = events.find((e) => e.id === EventId);
     setSelectedEvent(event);
+  };
+
+  const handleDeleteEvent = async (eventId) => {
+    await axios.delete(`http://localhost:5000/events/${eventId}`);
+    setEvents(events.filter((event) => event.id !== eventId));
+    setSelectedEvent(null);
   };
 
   const closeModal = () => {
     setSelectedEvent(null);
   };
+  function renderEventContent(eventInfo) {
+    console.log(eventInfo);
+    return {
+      html: ` <div data-id="${eventInfo.event.id}"> <b>${eventInfo.timeText}</b> <i>${eventInfo.event.title}</i> </div> `,
+    };
+  }
 
   return (
     <div className="events-background">
       <div className="container">
-        <h2>Anstehende Events</h2>
+        <h2>Upcoming Events</h2>
         <FullCalendar
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
           initialView="dayGridMonth"
-          events={events.map((event) => ({
-            ...event,
-            id: event.id.toString(),
-          }))}
+          events={events}
           dateClick={handleDateClick}
           eventClick={handleEventClick}
+          eventContent={renderEventContent}
         />
-        {selectedEvent && <Modal event={selectedEvent} onClose={closeModal} />}
+        {selectedEvent && (
+          <Modal event={selectedEvent} onClose={closeModal}>
+            <button onClick={() => handleDeleteEvent(selectedEvent.id)}>
+              Delete Event
+            </button>
+          </Modal>
+        )}
       </div>
     </div>
   );

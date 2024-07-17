@@ -4,7 +4,7 @@ const Menu = () => {
   return (
     <div className="menu-background">
       <div className="container">
-        <h2>Unser Menu</h2>
+        <h2>Unser Menü</h2>
         <div className="menu-category">
           <h3>Suppen</h3>
           <div className="menu-item">
