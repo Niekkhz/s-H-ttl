@@ -39,7 +39,6 @@ const Events = () => {
     const event = events.find((e) => e.id === EventId);
     setSelectedEvent(event);
   };
-
   const handleDeleteEvent = async (eventId) => {
     await axios.delete(`http://localhost:5000/events/${eventId}`);
     setEvents(events.filter((event) => event.id !== eventId));
