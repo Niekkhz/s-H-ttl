@@ -86,6 +86,62 @@ const Menu = () => {
             </div>
           </div>
         </div>
+        <div className="menu-category">
+          <h3>Schnitzel</h3>
+          <div className="menu-item">
+            <img
+              src="./bilder/Schnitzel.jpg"
+              alt="Smashed Burger"
+              className="menu-img"
+            />
+            <div className="menu-details">
+              <h4>Wiener Schnitzel</h4>
+              <p>Knuspriges Schweineschnitzel mit Pommes.</p>
+              <p className="price">12.50 €</p>
+            </div>
+          </div>
+          <div className="menu-item">
+            <img
+              src="./bilder/knusperschnitzel.jpg"
+              alt="Chicken Burger"
+              className="menu-img"
+            />
+            <div className="menu-details">
+              <h4>Knusperschnitzel</h4>
+              <p>
+                Knackiges Hähnchenschnitzel mit Cornflakespanade und Pommes.
+              </p>
+              <p className="price">14.50 €</p>
+            </div>
+          </div>
+        </div>
+        <div className="menu-category">
+          <h3>Dessert</h3>
+          <div className="menu-item">
+            <img
+              src="./bilder/käsekuchen.jpg"
+              alt="Smashed Burger"
+              className="menu-img"
+            />
+            <div className="menu-details">
+              <h4>Käsekuchen</h4>
+              <p>Fluffiger Käsekuchen.</p>
+              <p className="price">2.50 €</p>
+            </div>
+          </div>
+          <div className="menu-item">
+            <img
+              src="./bilder/tiramisu.jpg"
+              alt="Chicken Burger"
+              className="menu-img"
+            />
+            <div className="menu-details">
+              <h4>Tiramisu</h4>
+              <p>Hausgemachtes Tiramisu.</p>
+              <p className="price">3.50 €</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
