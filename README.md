@@ -1,8 +1,16 @@
-# React + Vite
+Mein Abschlussprojekt
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Thema: Das Hüttl
 
-Currently, two official plugins are available:
+In meinem Projekt habe ich 
+- Html 
+- Css
+- React.js
+- Responsive Design (Media Queries)
+- eine eigene Kalender Datenbank verwendet die mit einem Json Server läuft.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Das Projekt hat mir sehr Spaß gemacht und wir in Zukunft noch erweitert um eventuell wirklich als Restaurant Website für das Hüttl benutzt zu werden.
+
+Viel Spaß beim anschauen meines Projektes
+
+Autor: Niek Khazali
