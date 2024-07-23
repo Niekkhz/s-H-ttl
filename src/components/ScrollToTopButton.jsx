@@ -4,7 +4,7 @@ import "./ScrollToTopButton.css";
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  // zeigt nach unten
+  /*zeigt nach unten*/
   const toggleVisibility = () => {
     if (window.pageYOffset > 300) {
       setIsVisible(true);
@@ -13,7 +13,7 @@ const ScrollToTopButton = () => {
     }
   };
 
-  // Scrollt nach oben wenn geklickt
+  /*Scrollt nach oben wenn geklickt*/
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,

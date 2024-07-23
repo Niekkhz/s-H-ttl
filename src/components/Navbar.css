@@ -1,4 +1,3 @@
-/* src/components/Navbar.css */
 .navbar {
   background-color: #0077b6;
   padding: 1rem;
@@ -32,7 +31,7 @@
   height: 70px;
 }
 
-/* Hamburger menu styles */
+/* Hamburger css */
 .menu-icon {
   display: none;
   flex-direction: column;

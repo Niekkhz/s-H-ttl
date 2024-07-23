@@ -128,7 +128,7 @@ const Menu = () => {
             ))}
           </div>
         ))}
-        <ScrollToTopButton /> {/* Scroll-to-Top-Button hinzufügen */}
+        <ScrollToTopButton /> {}
       </div>
     </div>
   );
